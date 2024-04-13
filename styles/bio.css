@@ -34,6 +34,27 @@ body {
   margin: 0;
 }
 
+.container, .hero__container {
+  max-width: 1044px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .container, .hero__container {
+    padding: 0 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .container, .hero__container {
+    padding: 0 0;
+  }
+}
+
 .header {
   background-color: #323232;
 }
@@ -44,9 +65,6 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 0 1rem;
-  margin: 0 auto;
-  padding: 0 0;
 }
 @media (min-width: 768px) {
   .header__container {
@@ -62,7 +80,7 @@ body {
   }
 }
 .header__home {
-  padding: 1rem 0;
+  padding: 1.2rem 0 1rem 1rem;
   text-align: center;
 }
 @media (min-width: 768px) {
@@ -72,7 +90,7 @@ body {
   }
 }
 .header__logo {
-  max-width: 120px;
+  width: 140px;
 }
 .header__home, .header__navigation, .header__items {
   flex: 0 0 100%;
@@ -88,9 +106,6 @@ body {
   flex-direction: row;
   justify-content: center;
   padding: 0 1rem;
-  margin: 0 auto;
-  padding: 0 0;
-  list-style: none;
   align-items: flex-start;
 }
 @media (min-width: 768px) {
@@ -103,11 +118,12 @@ body {
 }
 .header__item {
   flex: 0 0 50%;
-  padding: 0 1rem 0.5rem;
+  padding: 0 0 1rem 1rem;
   font-weight: 600;
   text-align: center;
 }
 .header__item:hover, .header__item--active {
+  font-family: "AvenirNextLTPro-Demi";
   border-bottom: 0.25rem solid #ffffff;
   cursor: pointer;
 }
@@ -122,4 +138,38 @@ body {
 }
 .header__link {
   color: #afafaf;
+}
+
+.hero {
+  background: url("../assets/images/hero-bio.jpg");
+  background-size: cover;
+  height: 35vh;
+}
+@media (min-width: 768px) {
+  .hero {
+    height: 60vh;
+  }
+}
+@media (min-width: 1280px) {
+  .hero {
+    height: 80vh;
+  }
+}
+.hero__overlay {
+  height: 100%;
+  background-color: rgba(100, 100, 100, 0.5);
+}
+.hero__container {
+  height: 100%;
+  justify-content: flex-start;
+}
+.hero__title {
+  color: #ffffff;
+  font-family: "AvenirNextLTPro-Demi";
+  font-size: 1.8rem;
+}
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: 3.5rem;
+  }
 }/*# sourceMappingURL=bio.css.map */
