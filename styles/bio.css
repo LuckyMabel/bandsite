@@ -223,4 +223,42 @@ img {
 }
 .about__citation {
   padding: 0.5rem 0;
+}
+@media (min-width: 768px) {
+  .about__introduction {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.about__subtitle {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .about__subtitle {
+    flex: 1 0 100%;
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+.about__text {
+  line-height: 1.5;
+  font-size: 0.95rem;
+  padding: 0 1.1rem 0 0;
+}
+@media (min-width: 768px) {
+  .about__text {
+    flex: 1 0 40%;
+  }
+}
+.about__text--first {
+  padding: 0 1.4rem 0 0;
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .about__text--first {
+    margin: 0 2rem 0 0;
+    padding-bottom: 0;
+  }
 }/*# sourceMappingURL=bio.css.map */

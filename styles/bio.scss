@@ -87,4 +87,40 @@
     &__citation {
         padding: .5rem 0;
     }
+
+    &__introduction {
+        @include tablet {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__subtitle {
+        @include padding-headline("mobile");
+        font-size: 1rem;
+
+        @include tablet {
+            flex: 1 0 100%;
+            @include padding-headline("tablet");
+        }
+    }
+
+    &__text {
+        line-height: 1.5;
+        font-size: 0.95rem;
+        padding: 0 1.1rem 0 0;
+        @include tablet {
+            flex: 1 0 40%;
+        }
+    }
+    
+    &__text--first {
+        padding: 0 1.4rem 0 0;
+        @include padding-component("mobile");
+
+        @include tablet {
+            margin: 0 2rem 0 0;
+            padding-bottom: 0;
+        }
+    }
 }
