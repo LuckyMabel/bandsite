@@ -31,10 +31,60 @@
         color: $pri-light;
         font-family: 'AvenirNextLTPro-Demi';
         font-size: 1.8rem;
-        
+
         @include tablet {
             font-size: 3.5rem;
         }
     }
 }
 
+// About
+.about {
+    &__container {
+        @extend .container;
+        justify-content: flex-start;
+        @include padding-component("mobile");
+
+        @include tablet {
+            @include padding-component("tablet");
+        }
+    }
+
+    &__image {
+        @include padding-component("mobile");
+
+        @include tablet {
+            @include padding-component("tablet");
+        }
+    }
+
+    &__title{
+        font-family: 'AvenirNextLTPro-Demi';
+        color: $pri-dark;
+        font-size: 1.8rem;
+        @include padding-headline("mobile");
+
+        @include tablet {
+            @include padding-headline("tablet");
+        }
+    }
+
+    &__content {
+        @include tablet {
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+
+    &__passage {
+        font-family: 'AvenirNextLTPro-Demi';
+        color: $pri-dark;
+        font-size: 1.02rem;
+        line-height: 1.6;
+        padding: 0 .5rem;
+    }
+
+    &__citation {
+        padding: .5rem 0;
+    }
+}

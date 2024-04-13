@@ -34,7 +34,7 @@ body {
   margin: 0;
 }
 
-.container, .hero__container {
+.container, .hero__container, .about__container {
   max-width: 1044px;
   display: flex;
   flex-direction: row;
@@ -45,14 +45,18 @@ body {
   margin: 0 auto;
 }
 @media (min-width: 768px) {
-  .container, .hero__container {
+  .container, .hero__container, .about__container {
     padding: 0 2.25rem;
   }
 }
 @media (min-width: 1280px) {
-  .container, .hero__container {
+  .container, .hero__container, .about__container {
     padding: 0 0;
   }
+}
+
+img {
+  width: 100%;
 }
 
 .header {
@@ -172,4 +176,51 @@ body {
   .hero__title {
     font-size: 3.5rem;
   }
+}
+
+.about__container {
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .about__container {
+    padding-bottom: 2.25rem;
+  }
+}
+.about__image {
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .about__image {
+    padding-bottom: 2.25rem;
+  }
+}
+.about__title {
+  font-family: "AvenirNextLTPro-Demi";
+  color: #323232;
+  font-size: 1.8rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .about__title {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+@media (min-width: 768px) {
+  .about__content {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.about__passage {
+  font-family: "AvenirNextLTPro-Demi";
+  color: #323232;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  padding: 0 0.5rem;
+}
+.about__citation {
+  padding: 0.5rem 0;
 }/*# sourceMappingURL=bio.css.map */
