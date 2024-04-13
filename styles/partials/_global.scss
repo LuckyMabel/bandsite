@@ -11,3 +11,101 @@ $sec-dark: #000000;
 $sec-mid: #e1e1e1;
 $sec-light: #fafafa;
 
+body {
+  font-family: "AvenirNextLTPro-Regular";
+  padding: 0;
+  margin: 0;
+}
+
+// Header
+.header {
+  background-color: $pri-dark;
+
+  &__container {
+      max-width: 1044px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1rem;
+      margin: 0 auto;
+      padding: 0 0;
+
+      @include tablet {
+          padding: 0 2.25rem;
+          justify-content: flex-start;
+          flex-wrap: nowrap;
+          gap: 3.5rem;
+      }
+      @include desktop {
+        padding: 0 0;
+      }
+  }
+
+  &__home {
+      padding: 1rem 0;
+      text-align: center;
+
+      @include tablet {
+          padding: 0;
+          margin: 0;
+      }    
+  }
+
+  &__logo {
+    max-width: 120px;
+  }
+
+  &__home, &__navigation, &__items {
+      flex: 0 0 100%;
+
+      @include tablet {
+        flex: 0 0 auto;
+      }
+  }
+
+  &__items {
+      max-width: 1044px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 0 1rem;
+      margin: 0 auto;
+      padding: 0 0;
+      list-style: none;
+      align-items: flex-start;
+
+      @include tablet {
+        gap: 2rem;
+      }
+  }
+
+  &__item, &__link {
+    transition: all .2s ease;
+  }
+
+  &__item {
+      flex: 0 0 50%;
+      padding: 0 1rem .5rem;
+      font-weight: 600;
+      text-align: center;
+
+      &:hover, &--active {
+          border-bottom: .25rem solid $pri-light;
+          cursor: pointer;
+      }
+      &:hover > a, &--active > a {
+          color: $pri-light;
+      }
+
+      @include tablet {
+          padding: 1.5rem 0;
+          flex: 0 0 auto;
+      }
+  }
+
+  &__link {
+    color: $pri-mid;
+  }
+}
