@@ -5,9 +5,9 @@
 
 // Hero
 .hero {
-    background: url("../assets/images/hero-bio.jpg");
+    background: url("../assets/images/hero-bio.jpg") center;
     background-size: cover;
-    height: 35vh;
+    height: 32vh;
     
     @include tablet {
         height: 60vh;
@@ -18,7 +18,7 @@
 
     &__overlay {
         height: 100%;
-        background-color: rgba(100,100,100,.5);
+        background-color: rgba(50,50,50,.5);
     }
 
     &__container {
