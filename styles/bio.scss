@@ -10,7 +10,7 @@
     height: 32vh;
     
     @include tablet {
-        height: 60vh;
+        height: 50vh;
     }
     @include desktop {
         height: 80vh;
@@ -33,7 +33,7 @@
         font-size: 1.8rem;
 
         @include tablet {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
         }
     }
 }
@@ -50,14 +50,6 @@
         }
     }
 
-    &__image {
-        @include padding-component("mobile");
-
-        @include tablet {
-            @include padding-component("tablet");
-        }
-    }
-
     &__title{
         font-family: 'AvenirNextLTPro-Demi';
         color: $pri-dark;
@@ -65,14 +57,23 @@
         @include padding-headline("mobile");
 
         @include tablet {
+            font-size: 2.28rem;
             @include padding-headline("tablet");
         }
     }
 
     &__content {
         @include tablet {
-            width: 90%;
-            margin: 0 auto;
+            width: 82%;
+            margin: 0 3.6rem;
+        }
+    }
+
+    &__image {
+        @include padding-component("mobile");
+
+        @include tablet {
+            @include padding-component("tablet");
         }
     }
 
@@ -82,10 +83,19 @@
         font-size: 1.02rem;
         line-height: 1.6;
         padding: 0 .5rem;
+
+        @include tablet {
+            font-size: 1.4rem;
+            padding: 0 0;
+        }
     }
 
     &__citation {
         padding: .5rem 0;
+
+        @include tablet {
+            font-size: 1rem;
+        }
     }
 
     &__introduction {
@@ -101,6 +111,8 @@
 
         @include tablet {
             flex: 1 0 100%;
+            font-size: 1.5rem;
+            font-family: "AvenirNextLTPro-Demi";
             @include padding-headline("tablet");
         }
     }
@@ -109,8 +121,11 @@
         line-height: 1.5;
         font-size: 0.95rem;
         padding: 0 1.1rem 0 0;
+
         @include tablet {
             flex: 1 0 40%;
+            font-size: 0.875rem;
+            line-height: 1.375rem;
         }
     }
     
@@ -119,7 +134,7 @@
         @include padding-component("mobile");
 
         @include tablet {
-            margin: 0 2rem 0 0;
+            margin: 0 1.3rem 0 0;
             padding-bottom: 0;
         }
     }
@@ -146,6 +161,7 @@
         @include padding-headline("mobile");
 
         @include tablet {
+            font-size: 2.28rem;
             @include padding-headline("tablet");
         }
     }
@@ -161,16 +177,21 @@
 
     &__item {
         margin-bottom: 1rem;
-        &:last-child {margin-bottom: 0;}
+        &:last-child {
+            margin-bottom: 0;
+        }
 
-        @include tablet {width: 30%;}
+        @include tablet {
+            width: 30%;
+        }
     }
 
     &__image {
         filter: grayscale(1);
         transition: filter .2s ease;
 
-        &:hover {filter: none;}
+        &:hover {
+            filter: none;
+        }
     }
 }
-
