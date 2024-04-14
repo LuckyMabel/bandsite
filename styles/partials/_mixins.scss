@@ -1,6 +1,6 @@
 // Breakpoints
-$tablet-width: 768px;
-$desktop-width: 1280px;
+$tablet-width: 48rem;
+$desktop-width: 80rem;
 
 @mixin tablet {
   @media (min-width: $tablet-width) {
@@ -17,20 +17,18 @@ $desktop-width: 1280px;
 // Paddings
 @mixin padding-component($screentype) {
   @if $screentype == "mobile" {
-      padding-bottom: 1rem;
-  }
-  @else if $screentype == "tablet" or $screentype == "desktop" {
-      padding-bottom: 2.25rem;
+    padding-bottom: 1rem;
+  } @else if $screentype == "tablet" or $screentype == "desktop" {
+    padding-bottom: 2.25rem;
   }
 }
 
 @mixin padding-headline($screentype) {
   @if $screentype == "mobile" {
-      padding-top: 1.5rem;
-      padding-bottom: 1rem;
-  }
-  @else if $screentype == "tablet" or $screentype == "desktop" {
-      padding-top: 3rem;
-      padding-bottom: 2.25rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  } @else if $screentype == "tablet" or $screentype == "desktop" {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
   }
 }

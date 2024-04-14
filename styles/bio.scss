@@ -5,193 +5,220 @@
 
 // Hero
 .hero {
-    background: url("../assets/images/hero-bio.jpg") center;
-    background-size: cover;
-    height: 32vh;
-    
+  background: url("../assets/images/hero-bio.jpg") center;
+  background-size: cover;
+  height: 32vh;
+
+  @include tablet {
+    height: 50vh;
+  }
+  @include desktop {
+    height: 70vh;
+  }
+
+  &__overlay {
+    height: 100%;
+    background-color: rgba(50, 50, 50, 0.5);
+  }
+
+  &__container {
+    @extend .container;
+    height: 100%;
+    justify-content: flex-start;
+  }
+
+  &__title {
+    color: $pri-light;
+    font-family: "AvenirNextLTPro-Demi";
+    font-size: 1.8rem;
+
     @include tablet {
-        height: 50vh;
+      font-size: 3.8rem;
     }
-    @include desktop {
-        height: 80vh;
-    }
-
-    &__overlay {
-        height: 100%;
-        background-color: rgba(50,50,50,.5);
-    }
-
-    &__container {
-        @extend .container;
-        height: 100%;
-        justify-content: flex-start;
-    }
-
-    &__title {
-        color: $pri-light;
-        font-family: 'AvenirNextLTPro-Demi';
-        font-size: 1.8rem;
-
-        @include tablet {
-            font-size: 3.8rem;
-        }
-    }
+  }
 }
 
 // About
 .about {
-    &__container {
-        @extend .container;
-        justify-content: flex-start;
-        @include padding-component("mobile");
+  &__container {
+    @extend .container;
+    justify-content: flex-start;
+    @include padding-component("mobile");
 
-        @include tablet {
-            @include padding-component("tablet");
-        }
+    @include tablet {
+      @include padding-component("tablet");
+    }
+  }
+
+  &__title {
+    font-family: "AvenirNextLTPro-Demi";
+    color: $pri-dark;
+    font-size: 1.8rem;
+    @include padding-headline("mobile");
+
+    @include tablet {
+      font-size: 2.28rem;
+      @include padding-headline("tablet");
+    }
+  }
+
+  &__content {
+    @include tablet {
+      width: 82%;
+      margin: 0 3.6rem;
     }
 
-    &__title{
-        font-family: 'AvenirNextLTPro-Demi';
-        color: $pri-dark;
-        font-size: 1.8rem;
-        @include padding-headline("mobile");
+    @include desktop {
+      margin: 0 5.5rem;
+    }
+  }
 
-        @include tablet {
-            font-size: 2.28rem;
-            @include padding-headline("tablet");
-        }
+  &__image {
+    @include padding-component("mobile");
+
+    @include tablet {
+      @include padding-component("tablet");
+    }
+  }
+
+  &__passage {
+    font-family: "AvenirNextLTPro-Demi";
+    color: $pri-dark;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    padding: 0 0.5rem;
+
+    @include tablet {
+      font-size: 1.4rem;
+      padding: 0 0;
     }
 
-    &__content {
-        @include tablet {
-            width: 82%;
-            margin: 0 3.6rem;
-        }
+    @include desktop {
+      padding: 0 11rem 0 0;
+    }
+  }
+
+  &__citation {
+    padding: 0.5rem 0;
+
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+
+  &__introduction {
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__subtitle {
+    @include padding-headline("mobile");
+    font-size: 1rem;
+
+    @include tablet {
+      flex: 1 0 100%;
+      font-size: 1.5rem;
+      font-family: "AvenirNextLTPro-Demi";
+      @include padding-headline("tablet");
+    }
+  }
+
+  &__text {
+    line-height: 1.5;
+    font-size: 0.95rem;
+    padding: 0 1.1rem 0 0;
+
+    @include tablet {
+      flex: 1 0 40%;
+      font-size: 0.875rem;
+      line-height: 1.375rem;
     }
 
-    &__image {
-        @include padding-component("mobile");
+    @include desktop {
+      padding: 0 0;
+    }
+  }
 
-        @include tablet {
-            @include padding-component("tablet");
-        }
+  &__text--first {
+    padding: 0 1.4rem 0 0;
+    @include padding-component("mobile");
+
+    @include tablet {
+      margin: 0 1.3rem 0 0;
+      padding-bottom: 0;
     }
 
-    &__passage {
-        font-family: 'AvenirNextLTPro-Demi';
-        color: $pri-dark;
-        font-size: 1.02rem;
-        line-height: 1.6;
-        padding: 0 .5rem;
-
-        @include tablet {
-            font-size: 1.4rem;
-            padding: 0 0;
-        }
+    @include desktop {
+      padding: 0 0;
     }
-
-    &__citation {
-        padding: .5rem 0;
-
-        @include tablet {
-            font-size: 1rem;
-        }
-    }
-
-    &__introduction {
-        @include tablet {
-            display: flex;
-            flex-wrap: wrap;
-        }
-    }
-
-    &__subtitle {
-        @include padding-headline("mobile");
-        font-size: 1rem;
-
-        @include tablet {
-            flex: 1 0 100%;
-            font-size: 1.5rem;
-            font-family: "AvenirNextLTPro-Demi";
-            @include padding-headline("tablet");
-        }
-    }
-
-    &__text {
-        line-height: 1.5;
-        font-size: 0.95rem;
-        padding: 0 1.1rem 0 0;
-
-        @include tablet {
-            flex: 1 0 40%;
-            font-size: 0.875rem;
-            line-height: 1.375rem;
-        }
-    }
-    
-    &__text--first {
-        padding: 0 1.4rem 0 0;
-        @include padding-component("mobile");
-
-        @include tablet {
-            margin: 0 1.3rem 0 0;
-            padding-bottom: 0;
-        }
-    }
+  }
 }
 
 // Gallery
 .gallery {
-    background-color: $sec-light;
-    
-    &__container {
-        @extend .container;
-        justify-content: flex-start;
-        @include padding-component("mobile");
+  background-color: $sec-light;
 
-        @include tablet {
-            @include padding-component("tablet");
-        }
+  &__container {
+    @extend .container;
+    justify-content: flex-start;
+    @include padding-component("mobile");
+
+    @include tablet {
+      @include padding-component("tablet");
+    }
+  }
+
+  &__title {
+    font-family: "AvenirNextLTPro-Demi";
+    color: $pri-dark;
+    font-size: 1.8rem;
+    @include padding-headline("mobile");
+
+    @include tablet {
+      font-size: 2.28rem;
+      @include padding-headline("tablet");
+    }
+  }
+
+  &__items {
+    @include tablet {
+      display: flex;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
     }
 
-    &__title {
-        font-family: 'AvenirNextLTPro-Demi';
-        color: $pri-dark;
-        font-size: 1.8rem;
-        @include padding-headline("mobile");
+    @include desktop {
+      gap: 1rem;
+    }
+  }
 
-        @include tablet {
-            font-size: 2.28rem;
-            @include padding-headline("tablet");
-        }
+  &__item {
+    margin-bottom: 1rem;
+    &:last-child {
+      margin-bottom: 0;
     }
 
-    &__items {
-        @include tablet {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 1rem;
-        }
+    @include tablet {
+      margin-bottom: 0;
+      width: 30%;
     }
 
-    &__item {
-        margin-bottom: 1rem;
-        &:last-child {
-            margin-bottom: 0;
-        }
-
-        @include tablet {
-            width: 30%;
-        }
+    @include desktop {
+      margin-bottom: 0;
+      width: 32%;
     }
+  }
 
-    &__image {
-        filter: grayscale(1);
-        transition: filter .2s ease;
+  &__image {
+    filter: grayscale(1);
+    transition: filter 0.2s ease;
 
-        &:hover {
-            filter: none;
-        }
+    &:hover {
+      filter: none;
     }
+  }
 }

@@ -1,6 +1,6 @@
-@use './font' as *;
-@use './mixins' as *;
-@use './resets' as *;
+@use "./font" as *;
+@use "./mixins" as *;
+@use "./resets" as *;
 
 // Colours
 $pri-dark: #323232;
@@ -31,7 +31,7 @@ body {
     padding: 0 2.25rem;
   }
   @include desktop {
-    padding: 0 0;
+    padding: 0 8rem;
   }
 }
 
@@ -44,28 +44,28 @@ img {
   background-color: $pri-dark;
 
   &__container {
-      @extend .container;
-      padding: 0 0;
+    @extend .container;
+    padding: 0 0;
 
-      @include tablet {
-          padding: 0 2.25rem;
-          justify-content: flex-start;
-          flex-wrap: nowrap;
-          gap: 3rem;
-      }
-      @include desktop {
-        padding: 0 0;
-      }
+    @include tablet {
+      padding: 0 2.25rem;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      gap: 3rem;
+    }
+    @include desktop {
+      padding: 0 8rem;
+    }
   }
 
   &__home {
-      padding: 1.2rem 0 1rem .5rem;
-      text-align: center;
+    padding: 1.2rem 0 1rem 0.5rem;
+    text-align: center;
 
-      @include tablet {
-          padding: 0;
-          margin: 0;
-      }    
+    @include tablet {
+      padding: 0;
+      margin: 0;
+    }
   }
 
   &__logo {
@@ -73,49 +73,54 @@ img {
     max-width: 7.5rem;
   }
 
-  &__home, &__navigation, &__items {
-      flex: 0 0 100%;
+  &__home,
+  &__navigation,
+  &__items {
+    flex: 0 0 100%;
 
-      @include tablet {
-        flex: 0 0 auto;
-      }
+    @include tablet {
+      flex: 0 0 auto;
+    }
   }
 
   &__items {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      padding: 0 1rem;
-      align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 1rem;
+    align-items: flex-start;
 
-      @include tablet {
-        gap: 2.5rem;
-      }
+    @include tablet {
+      gap: 2.5rem;
+    }
   }
 
-  &__item, &__link {
-    transition: all .2s ease;
+  &__item,
+  &__link {
+    transition: all 0.2s ease;
   }
 
   &__item {
-      flex: 0 0 50%;
-      padding: 0 0 1rem 1rem;
-      text-align: center;
+    flex: 0 0 50%;
+    padding: 0 0 1rem 1rem;
+    text-align: center;
 
-      &:hover, &--active {
-          font-family: 'AvenirNextLTPro-Demi';
-          border-bottom: .25rem solid $pri-light;
-          cursor: pointer;
-      }
-      &:hover > a, &--active > a {
-          color: $pri-light;
-      }
+    &:hover,
+    &--active {
+      font-family: "AvenirNextLTPro-Demi";
+      border-bottom: 0.25rem solid $pri-light;
+      cursor: pointer;
+    }
+    &:hover > a,
+    &--active > a {
+      color: $pri-light;
+    }
 
-      @include tablet {
-          padding: 1.5rem 0;
-          flex: 0 0 auto;
-          font-size: .9rem;
-      }
+    @include tablet {
+      padding: 1.5rem 0;
+      flex: 0 0 auto;
+      font-size: 0.9rem;
+    }
   }
 
   &__link {
@@ -128,89 +133,99 @@ img {
   background-color: $pri-dark;
 
   &__container {
-      @extend .container;
-      justify-content: flex-start;
-      padding-bottom: 2rem;
-      
-      @include tablet {
-          padding-bottom: 4rem;
-      }
+    @extend .container;
+    justify-content: flex-start;
+    padding-bottom: 2rem;
+
+    @include tablet {
+      padding-bottom: 4rem;
+    }
   }
 
   &__title {
-      flex: 1 0 100%;
-      font-family: 'AvenirNextLTPro-Demi';
-      color: $pri-light;
-      font-size: 1.8rem;
-      @include padding-headline("mobile");
+    flex: 1 0 100%;
+    font-family: "AvenirNextLTPro-Demi";
+    color: $pri-light;
+    font-size: 1.8rem;
+    @include padding-headline("mobile");
 
-      @include tablet {
-          font-size: 2.28rem;
-          order: -1;
-          flex: 1 1 30%;
-          @include padding-headline("tablet");
-      }
+    @include tablet {
+      font-size: 2.28rem;
+      order: -1;
+      flex: 1 1 30%;
+      @include padding-headline("tablet");
+    }
 
-      @include desktop {
-        flex: 0 1 30%;
-      }
+    @include desktop {
+      flex: 0 1 26%;
+    }
   }
 
   &__social {
-      flex: 1 0 100%;
-      display: flex;
-      gap: 2rem;
+    flex: 1 0 100%;
+    display: flex;
+    gap: 2rem;
 
-      @include tablet {
-          order: -1;
-          flex: 1 1 30%;
-      }
+    @include tablet {
+      order: -1;
+      flex: 1 1 30%;
+    }
 
-      @include desktop {
-        flex: 0 1 30%;
-      }
+    @include desktop {
+      flex: 0 1 30%;
+    }
   }
 
   &__icon {
-      width: 1.8rem;
-      height: 1.8rem;
-      vertical-align: bottom;
+    width: 1.8rem;
+    height: 1.8rem;
+    vertical-align: bottom;
+
+    @include desktop {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 
   &__contact {
-      flex: 1 0 100%;
-      color: $pri-light;
+    flex: 1 0 100%;
+    color: $pri-light;
 
-      @include tablet {
-        flex: 1 0 30%;
-      }
+    @include tablet {
+      flex: 1 0 30%;
+    }
 
-      @include desktop {
-        flex: 0 1 30%;
-      }
+    @include desktop {
+      flex: 0 1 26%;
+      font-size: 0.85rem;
+    }
   }
 
   &__contact-name {
-      font-family: 'AvenirNextLTPro-Demi';
-      @include padding-headline("mobile");
+    font-family: "AvenirNextLTPro-Demi";
+    @include padding-headline("mobile");
 
-      @include tablet {
-          padding-top: 0;
-          @include padding-component("tablet");
-      }
+    @include tablet {
+      padding-top: 0;
+      @include padding-component("tablet");
+    }
   }
 
   &__contact-location {
-      @include padding-component("mobile");
+    @include padding-component("mobile");
 
-      @include tablet {
-        @include padding-component("tablet");
-      }
+    @include tablet {
+      @include padding-component("tablet");
+    }
   }
 
   &__contact-email {
-      font-size: .95rem;
-      color: $pri-light;
+    font-size: 0.95rem;
+    color: $pri-light;
+
+    @include desktop {
+      font-size: 0.85rem;
+    }
   }
 
   &__logo {
@@ -220,31 +235,35 @@ img {
   }
 
   &__home {
-      display: block;
-      margin-top: 3rem;
-      @include padding-component("mobile");
+    display: block;
+    margin-top: 3rem;
+    @include padding-component("mobile");
 
-      @include tablet {
-          flex: 1 1 30%;
-          padding-bottom: 0;
-          margin-top: 0;
-          order: -1;
-          text-align: right;
-      }
+    @include tablet {
+      flex: 1 1 30%;
+      padding-bottom: 0;
+      margin-top: 0;
+      order: -1;
+      text-align: right;
+    }
 
-      @include desktop {
-        flex: 1 0 40%;
-      }
+    @include desktop {
+      flex: 1 0 40%;
+    }
   }
 
   &__copyright {
-      color: $pri-light;
-      flex: 1 0 100%;
-      font-size: 12px;
-      
-      @include tablet {
-          font-size: 1rem;
-          margin-top: 3rem;
-      }
+    color: $pri-light;
+    flex: 1 0 100%;
+    font-size: 0.75rem;
+
+    @include tablet {
+      font-size: 1rem;
+      margin-top: 3rem;
+    }
+
+    @include desktop {
+      font-size: 0.88rem;
+    }
   }
 }
