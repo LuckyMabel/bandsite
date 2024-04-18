@@ -34,7 +34,7 @@ body {
   margin: 0;
 }
 
-.container, .hero__container, .about__container, .gallery__container, .footer__container, .header__container {
+.container, .about__container, .gallery__container, .footer__container, .hero__container, .header__container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -44,12 +44,12 @@ body {
   margin: 0 auto;
 }
 @media (min-width: 48rem) {
-  .container, .hero__container, .about__container, .gallery__container, .footer__container, .header__container {
+  .container, .about__container, .gallery__container, .footer__container, .hero__container, .header__container {
     padding: 0 2.25rem;
   }
 }
 @media (min-width: 80rem) {
-  .container, .hero__container, .about__container, .gallery__container, .footer__container, .header__container {
+  .container, .about__container, .gallery__container, .footer__container, .hero__container, .header__container {
     padding: 0 8rem;
   }
 }
@@ -136,6 +136,25 @@ img {
 }
 .header__link {
   color: #afafaf;
+}
+
+.hero__overlay {
+  height: 100%;
+  background-color: rgba(50, 50, 50, 0.5);
+}
+.hero__container {
+  height: 100%;
+  justify-content: flex-start;
+}
+.hero__title {
+  color: #ffffff;
+  font-family: "AvenirNextLTPro-Demi";
+  font-size: 1.8rem;
+}
+@media (min-width: 48rem) {
+  .hero__title {
+    font-size: 3.8rem;
+  }
 }
 
 .footer {
@@ -296,24 +315,6 @@ img {
 @media (min-width: 80rem) {
   .hero {
     height: 70vh;
-  }
-}
-.hero__overlay {
-  height: 100%;
-  background-color: rgba(50, 50, 50, 0.5);
-}
-.hero__container {
-  height: 100%;
-  justify-content: flex-start;
-}
-.hero__title {
-  color: #ffffff;
-  font-family: "AvenirNextLTPro-Demi";
-  font-size: 1.8rem;
-}
-@media (min-width: 48rem) {
-  .hero__title {
-    font-size: 3.8rem;
   }
 }
 

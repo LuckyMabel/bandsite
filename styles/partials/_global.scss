@@ -128,6 +128,30 @@ img {
   }
 }
 
+// Hero
+.hero {
+  &__overlay {
+    height: 100%;
+    background-color: rgba(50, 50, 50, 0.5);
+  }
+
+  &__container {
+    @extend .container;
+    height: 100%;
+    justify-content: flex-start;
+  }
+
+  &__title {
+    color: $pri-light;
+    font-family: "AvenirNextLTPro-Demi";
+    font-size: 1.8rem;
+
+    @include tablet {
+      font-size: 3.8rem;
+    }
+  }
+}
+
 // Footer
 .footer {
   background-color: $pri-dark;

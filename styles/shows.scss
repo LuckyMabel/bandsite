@@ -2,3 +2,21 @@
 @use "./partials/font" as *;
 @use "./partials/mixins" as *;
 @use "./partials/resets" as *;
+
+.hero {
+  background: url("../assets/images/hero-shows.jpg") center;
+  background-size: cover;
+  height: 32vh;
+
+  @include tablet {
+    height: 50vh;
+  }
+  @include desktop {
+    height: 70vh;
+  }
+
+  &__subtitle {
+    font-family: "AvenirNextLTPro-Demi";
+    color: $pri-light;
+  }
+}
