@@ -9,7 +9,7 @@
   <body>
     <header class="header">
       <div class="header__container">
-        <a class="header__home" href="./index.html">
+        <a class="header__home" href="./">
           <img
             class="header__logo"
             src="./assets/logos/Logo-bandsite.svg"
@@ -18,11 +18,11 @@
         </a>
         <nav class="header__navigation">
           <ul class="header__items">
-            <li class="header__item header__item--active">
-              <a class="header__link" href="./index.html">Biography</a>
-            </li>
             <li class="header__item">
-              <a class="header__link" href="#">Shows</a>
+              <a class="header__link" href="./">Biography</a>
+            </li>
+            <li class="header__item header__item--active">
+              <a class="header__link" href="./pages/shows.html">Shows</a>
             </li>
           </ul>
         </nav>
@@ -153,6 +153,53 @@
           </ul>
         </div>
       </section>
+
+      <section class="comment">
+        <div class="comment__container">
+          <h2 class="comment__title">Join the Conversation</h2>
+
+          <div class="comment__generate">
+            <div class="comment__thumbnail comment__thumbnail--active">
+              <div class="comment__avatar">
+                <img
+                  class="comment__image"
+                  src="./assets/images/Mohan-muruge.jpg"
+                  alt="User Avatar"
+                />
+              </div>
+            </div>
+            <form class="comment__form" action="">
+              <div class="comment__name">
+                <label class="comment__label" for="comment__input">Name</label>
+                <input
+                  class="comment__input"
+                  type="text"
+                  name="name"
+                  id="comment_input"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div class="comment__text">
+                <label class="comment__label" for="comment__textarea"
+                  >Comment</label
+                >
+                <textarea
+                  class="comment__textarea"
+                  name="textarea"
+                  id="comment__textarea"
+                  placeholder="Add a new comment"
+                  required
+                ></textarea>
+              </div>
+              <div class="comment__submit">
+                <button class="comment__action">Comment</button>
+              </div>
+            </form>
+          </div>
+          <div class="comment__items"></div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
@@ -223,7 +270,7 @@
           >
         </div>
 
-        <a class="footer__home" href="./index.html">
+        <a class="footer__home" href="./">
           <img
             class="footer__logo"
             src="./assets/logos/Logo-bandsite.svg"
