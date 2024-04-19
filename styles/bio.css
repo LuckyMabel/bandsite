@@ -34,7 +34,7 @@ body {
   margin: 0;
 }
 
-.container, .about__container, .gallery__container, .footer__container, .hero__container, .header__container {
+.container, .about__container, .gallery__container, .comment__container, .comment__generate, .footer__container, .hero__container, .header__container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -44,12 +44,12 @@ body {
   margin: 0 auto;
 }
 @media (min-width: 48rem) {
-  .container, .about__container, .gallery__container, .footer__container, .hero__container, .header__container {
+  .container, .about__container, .gallery__container, .comment__container, .comment__generate, .footer__container, .hero__container, .header__container {
     padding: 0 2.25rem;
   }
 }
 @media (min-width: 80rem) {
-  .container, .about__container, .gallery__container, .footer__container, .hero__container, .header__container {
+  .container, .about__container, .gallery__container, .comment__container, .comment__generate, .footer__container, .hero__container, .header__container {
     padding: 0 8rem;
   }
 }
@@ -503,4 +503,107 @@ img {
 }
 .gallery__image:hover {
   filter: none;
+}
+
+.comment__container {
+  justify-content: flex-start;
+}
+.comment__title {
+  flex: 1 0 100%;
+  font-family: "AvenirNextLTPro-Demi";
+  font-size: 1.87rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media (min-width: 48rem) {
+  .comment__title {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+.comment__generate {
+  flex: 1 0 100%;
+  padding: 0 0;
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+}
+@media (min-width: 48rem) {
+  .comment__generate {
+    padding-bottom: 2.25rem;
+  }
+}
+.comment__thumbnail {
+  align-self: flex-start;
+}
+.comment__thumbnail--active {
+  margin-top: 1.8rem;
+}
+.comment__avatar {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 0;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 1.2rem;
+  background-color: #e1e1e1;
+}
+.comment__image {
+  width: auto;
+  height: 100%;
+}
+.comment__name, .comment__text {
+  padding-bottom: 1.1rem;
+}
+.comment__name, .comment__text, .comment__label, .comment__input, .comment__textarea, .comment__action {
+  width: 100%;
+}
+.comment__input, .comment__textarea, .comment__action {
+  border-radius: 0.25rem;
+}
+.comment__label {
+  color: #afafaf;
+  text-transform: uppercase;
+  font-family: "AvenirNextLTPro-Demi";
+  font-size: 0.75rem;
+}
+.comment__input, .comment__textarea {
+  border: 1px solid #e1e1e1;
+  padding: 0.75rem;
+  background-color: #fafafa;
+  margin-top: 0.5rem;
+  font-family: "AvenirNextLTPro-Regular";
+  font-size: 1rem;
+}
+.comment__input:focus, .comment__textarea:focus {
+  border-color: #323232;
+}
+.comment__input::-moz-placeholder, .comment__textarea::-moz-placeholder {
+  font-family: "AvenirNextLTPro-Regular";
+  color: #323232;
+  font-size: 1rem;
+}
+.comment__input::placeholder, .comment__textarea::placeholder {
+  font-family: "AvenirNextLTPro-Regular";
+  color: #323232;
+  font-size: 1rem;
+}
+.comment__textarea {
+  min-height: 120px;
+}
+.comment__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110%;
+  min-height: 3rem;
+  background-color: #323232;
+  color: #ffffff;
+  font-family: "AvenirNextLTPro-Demi";
+  font-size: 1.2rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  border-style: none;
+  cursor: pointer;
 }/*# sourceMappingURL=bio.css.map */

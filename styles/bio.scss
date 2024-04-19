@@ -201,3 +201,129 @@
     }
   }
 }
+
+// Comment
+.comment {
+  &__container {
+    @extend .container;
+    justify-content: flex-start;
+  }
+
+  &__title {
+    flex: 1 0 100%;
+    font-family: "AvenirNextLTPro-Demi";
+    font-size: 1.87rem;
+    @include padding-headline("mobile");
+
+    @include tablet {
+      @include padding-headline("tablet");
+    }
+  }
+
+  &__generate {
+    @extend .container;
+    flex: 1 0 100%;
+    padding: 0 0;
+    justify-content: flex-start;
+
+    @include padding-component("mobile");
+
+    @include tablet {
+      @include padding-component("tablet");
+    }
+  }
+
+  &__thumbnail {
+    align-self: flex-start;
+
+    &--active {
+      margin-top: 1.8rem;
+    }
+  }
+
+  &__avatar {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 0;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1.2rem;
+    background-color: $sec-mid;
+  }
+
+  &__image {
+    width: auto;
+    height: 100%;
+  }
+
+  &__name,
+  &__text {
+    padding-bottom: 1.1rem;
+  }
+
+  &__name,
+  &__text,
+  &__label,
+  &__input,
+  &__textarea,
+  &__action {
+    width: 100%;
+  }
+
+  &__input,
+  &__textarea,
+  &__action {
+    border-radius: 0.25rem;
+  }
+
+  &__label {
+    color: $pri-mid;
+    text-transform: uppercase;
+    font-family: "AvenirNextLTPro-Demi";
+    font-size: 0.75rem;
+  }
+
+  &__input,
+  &__textarea {
+    border: 1px solid $sec-mid;
+    padding: 0.75rem;
+    background-color: #fafafa;
+    margin-top: 0.5rem;
+    font-family: "AvenirNextLTPro-Regular";
+    font-size: 1rem;
+  }
+
+  &__input:focus,
+  &__textarea:focus {
+    border-color: $pri-dark;
+  }
+
+  &__input::placeholder,
+  &__textarea::placeholder {
+    font-family: "AvenirNextLTPro-Regular";
+    color: $pri-dark;
+    font-size: 1rem;
+  }
+
+  &__textarea {
+    min-height: 120px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110%;
+    min-height: 3rem;
+    background-color: $pri-dark;
+    color: $pri-light;
+    font-family: "AvenirNextLTPro-Demi";
+    font-size: 1.2rem;
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    border-style: none;
+    cursor: pointer;
+  }
+}
