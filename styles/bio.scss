@@ -267,15 +267,8 @@
   &__text,
   &__label,
   &__input,
-  &__textarea,
-  &__action {
+  &__textarea {
     width: 100%;
-  }
-
-  &__input,
-  &__textarea,
-  &__action {
-    border-radius: 0.25rem;
   }
 
   &__label {
@@ -293,6 +286,11 @@
     margin-top: 0.5rem;
     font-family: "AvenirNextLTPro-Regular";
     font-size: 1rem;
+    border-radius: 0.25rem;
+  }
+
+  &__textarea {
+    min-height: 120px;
   }
 
   &__input:focus,
@@ -305,10 +303,6 @@
     font-family: "AvenirNextLTPro-Regular";
     color: $pri-dark;
     font-size: 1rem;
-  }
-
-  &__textarea {
-    min-height: 120px;
   }
 
   &__button {
@@ -325,5 +319,52 @@
     text-transform: uppercase;
     border-style: none;
     cursor: pointer;
+  }
+
+  &__items {
+    flex: 1 1 100%;
+    @include padding-component("mobile");
+
+    @include desktop {
+      max-width: 55%;
+      margin: auto;
+    }
+  }
+
+  &__item {
+    @extend .container;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    padding: 16px 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1 1 auto;
+  }
+
+  &__username {
+    font-size: 1rem;
+    font-family: "AvenirNextLTPro-Demi";
+    @include padding-component("mobile");
+  }
+
+  &__timestamp {
+    color: $pri-mid;
+    @include padding-component("mobile");
+  }
+
+  &__body {
+    flex: 1 1 100%;
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background-color: $sec-mid;
+    border: none;
   }
 }
