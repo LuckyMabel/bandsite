@@ -39,6 +39,28 @@ img {
   width: 100%;
 }
 
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 3rem;
+  background-color: $pri-dark;
+  color: $pri-light;
+  font-family: "AvenirNextLTPro-Demi";
+  font-size: 1.2rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  border-style: none;
+  cursor: pointer;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: $sec-mid;
+  border: none;
+}
+
 // Header
 .header {
   background-color: $pri-dark;

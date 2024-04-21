@@ -233,6 +233,10 @@
     }
   }
 
+  &__form {
+    width: 80%;
+  }
+
   &__thumbnail {
     align-self: flex-start;
 
@@ -306,19 +310,8 @@
   }
 
   &__button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend .button;
     width: 110%;
-    min-height: 3rem;
-    background-color: $pri-dark;
-    color: $pri-light;
-    font-family: "AvenirNextLTPro-Demi";
-    font-size: 1.2rem;
-    border-radius: 0.25rem;
-    text-transform: uppercase;
-    border-style: none;
-    cursor: pointer;
   }
 
   &__items {
@@ -362,9 +355,6 @@
   }
 
   &__divider {
-    width: 100%;
-    height: 1px;
-    background-color: $sec-mid;
-    border: none;
+    @extend .divider;
   }
 }

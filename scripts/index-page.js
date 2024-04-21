@@ -37,7 +37,7 @@ let clearComments = () => {
 // Render Comments
 let renderComments = commentsObj => {
     clearComments();
-
+    
     const data = commentsObj ? commentsObj : comments;
     const className = "comment__";
     const mainContainer = document.querySelector(`.${className}items`);
