@@ -216,7 +216,12 @@
     @include padding-headline("mobile");
 
     @include tablet {
+      font-size: 2.46rem;
       @include padding-headline("tablet");
+
+      @include desktop {
+        font-size: 2.3rem;
+      }
     }
   }
 
@@ -225,16 +230,24 @@
     flex: 1 0 100%;
     padding: 0 0;
     justify-content: flex-start;
-
     @include padding-component("mobile");
 
     @include tablet {
+      margin: 0 0 0 4.2rem;
       @include padding-component("tablet");
+    }
+
+    @include desktop {
+      margin: 0 0 0 16.3rem;
     }
   }
 
   &__form {
     width: 80%;
+
+    @include desktop {
+      width: 45%;
+    }
   }
 
   &__thumbnail {
@@ -255,6 +268,12 @@
     overflow: hidden;
     margin-right: 1.2rem;
     background-color: $sec-mid;
+
+    @include tablet {
+      margin-right: 0.8rem;
+      width: 3.3rem;
+      height: 3.3rem;
+    }
   }
 
   &__image {
@@ -272,7 +291,15 @@
   &__label,
   &__input,
   &__textarea {
-    width: 100%;
+    width: 96%;
+
+    @include tablet {
+      width: 93.5%;
+    }
+
+    @include desktop {
+      width: 94%;
+    }
   }
 
   &__label {
@@ -284,7 +311,7 @@
 
   &__input,
   &__textarea {
-    border: 1px solid $sec-mid;
+    border: 0.063rem solid $sec-mid;
     padding: 0.75rem;
     background-color: #fafafa;
     margin-top: 0.5rem;
@@ -294,7 +321,7 @@
   }
 
   &__textarea {
-    min-height: 120px;
+    min-height: 7.5rem;
   }
 
   &__input:focus,
@@ -309,18 +336,45 @@
     font-size: 1rem;
   }
 
+  &__submit {
+    @include tablet {
+      display: flex;
+      justify-content: flex-end;
+      width: 92%;
+
+      @include desktop {
+        width: 94%;
+      }
+    }
+  }
+
   &__button {
     @extend .button;
-    width: 110%;
+    width: 101.5%;
+
+    @include tablet {
+      width: 30.5%;
+      font-size: 1rem;
+    }
+
+    @include desktop {
+      width: 34.5%;
+      min-height: 2.5rem;
+    }
   }
 
   &__items {
     flex: 1 1 100%;
     @include padding-component("mobile");
 
+    @include tablet {
+      margin: 0 4.2rem;
+      padding-bottom: 2.5rem;
+    }
+
     @include desktop {
       max-width: 55%;
-      margin: auto;
+      margin: 0 16.3rem;
     }
   }
 
@@ -328,7 +382,11 @@
     @extend .container;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    padding: 16px 0;
+    padding: 1rem 0;
+
+    @include tablet {
+      padding: 1.8rem 0;
+    }
   }
 
   &__content {
@@ -348,10 +406,23 @@
   &__timestamp {
     color: $pri-mid;
     @include padding-component("mobile");
+
+    @include tablet {
+      font-size: 0.9rem;
+    }
   }
 
   &__body {
     flex: 1 1 100%;
+
+    @include tablet {
+      line-height: 1.5rem;
+      font-size: 0.92rem;
+    }
+
+    @include desktop {
+      font-size: 0.87rem;
+    }
   }
 
   &__divider {
