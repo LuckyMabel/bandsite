@@ -7,30 +7,47 @@
 .hero {
   background: url("../assets/images/hero-shows.jpg") center;
   background-size: cover;
-  height: 32vh;
+  height: 56vh;
 
   @include tablet {
-    height: 50vh;
+    height: 48vh;
   }
   @include desktop {
     height: 70vh;
   }
 
+  &__content {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
   &__subtitle {
-    font-family: "AvenirNextLTPro-Demi";
+    flex: 1 1 100%;
+    font-size: 1.08rem;
     color: $pri-light;
+    font-family: "AvenirNextLTPro-Demi";
+
+    @include tablet {
+      font-size: 1.54rem;
+    }
   }
 
   &__title {
-    flex: 0 1 60%;
+    flex: 0 1 70%;
+    margin-right: 5rem;
     @include padding-headline("mobile");
 
     @include tablet {
-      flex: 0 1 70%;
-      font-size: 3.5rem;
+      flex: 1 1 80%;
+      font-size: 4.1rem;
     }
+
     @include desktop {
-      flex: 1 1 50%;
+      flex: 1 1 20%;
     }
   }
 
@@ -38,10 +55,12 @@
     flex: 1 1 100%;
 
     @include tablet {
+      width: 60%;
+      height: 90%;
       flex: 0 1 60%;
     }
     @include desktop {
-      flex: 1 1 50%;
+      flex: 1 1 12%;
     }
   }
 }
@@ -50,30 +69,36 @@
 .shows {
   &__container {
     @extend .container;
-
+    padding: 0 1rem 1rem 1rem;
     justify-content: flex-start;
 
     @include tablet {
       @include padding-component("tablet");
+      padding: 0 1.5rem 2.5rem 1.5rem;
     }
 
     @include desktop {
       flex-wrap: nowrap;
-      padding-top: 3rem;
+      padding: 4rem 7rem 2.5rem 5rem;
     }
   }
 
   &__title {
+    font-family: "AvenirNextLTPro-Demi";
+    font-size: 1.8rem;
     flex: 1 1 100%;
     @include padding-headline("mobile");
 
     @include tablet {
       @include padding-headline("tablet");
+      font-size: 2.2rem;
+      padding-left: 0.8rem;
     }
+
     @include desktop {
       flex: 0 1 20%;
       align-self: flex-start;
-      padding: 0;
+      padding: 0 0 0 3rem;
       margin-top: -1rem;
     }
   }
@@ -87,52 +112,61 @@
   &__content,
   &__info {
     flex: 1 1 100%;
+
+    @include desktop {
+      padding-left: 5rem;
+    }
   }
 
   &__header {
-    @extend .container;
     display: none;
 
     @include tablet {
       display: flex;
-      padding-left: 1.125rem;
-      padding-right: 1.125rem;
+      padding: 0 1rem;
     }
   }
 
   &__info {
     @extend .container;
     justify-content: flex-start;
-    @include padding-component("mobile");
+    padding: 1rem 0;
+
+    &:hover {
+      background-color: $sec-light;
+      cursor: pointer;
+    }
+
+    &--selected {
+      background-color: $sec-mid;
+      &:hover {
+        background-color: $sec-mid;
+      }
+    }
 
     @include tablet {
       flex-wrap: wrap;
-      padding: 1.5rem 1.125rem;
-
-      &:hover {
-        background-color: $sec-light;
-        cursor: pointer;
-      }
-
-      &--selected {
-        background-color: $sec-mid;
-        &:hover {
-          background-color: $sec-mid;
-        }
-      }
+      padding: 1rem 1rem;
     }
   }
 
   &__label {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     color: $pri-mid;
     text-transform: uppercase;
+    font-family: "AvenirNextLTPro-Demi";
+    font-size: 0.7rem;
+    display: block;
 
     @include tablet {
       &--mobile {
         display: none;
       }
     }
+  }
+
+  &__date {
+    font-family: "AvenirNextLTPro-Demi";
   }
 
   &__date,
@@ -143,7 +177,7 @@
     flex: 1 1 100%;
 
     @include tablet {
-      flex: 0 0 25%;
+      flex: 0 0 26%;
     }
   }
 
@@ -154,6 +188,19 @@
 
     @include tablet {
       padding-bottom: 0;
+      font-size: 0.9rem;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+
+    @include tablet {
+      width: 21.5%;
+    }
+
+    @include desktop {
+      width: 20%;
     }
   }
 
@@ -161,16 +208,18 @@
     @extend .button;
 
     @include tablet {
-      letter-spacing: -0.01rem;
+      font-size: 0.95rem;
+    }
+
+    @include desktop {
+      min-height: 2.5rem;
     }
   }
 
   &__divider {
     @extend .divider;
-    margin-bottom: 1rem;
 
     @include tablet {
-      margin-bottom: 0;
     }
   }
 }

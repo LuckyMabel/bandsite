@@ -69,7 +69,9 @@ let renderShows = showsObj => {
             </li>
         `;
         const showButton = `
-            <a href="#" class="${className}button">Buy Tickets</a>
+            <div class="${className}submit">
+                <a href="#" class="${className}button">Buy Tickets</a>
+            </div>
         `;
         const showDivider = `<hr class="${className}divider">`;
 
