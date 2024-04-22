@@ -10,7 +10,7 @@
   height: 56vh;
 
   @include tablet {
-    height: 48vh;
+    height: 62vh;
   }
   @include desktop {
     height: 70vh;
@@ -29,7 +29,8 @@
     flex: 1 1 100%;
     font-size: 1.08rem;
     color: $pri-light;
-    font-family: "AvenirNextLTPro-Demi";
+    font-family: "Avenir Next Pro Lt";
+    font-weight: 600;
 
     @include tablet {
       font-size: 1.54rem;
@@ -84,7 +85,8 @@
   }
 
   &__title {
-    font-family: "AvenirNextLTPro-Demi";
+    font-family: "Avenir Next Pro Lt";
+    font-weight: 600;
     font-size: 1.8rem;
     flex: 1 1 100%;
     @include padding-headline("mobile");
@@ -154,7 +156,8 @@
     margin-bottom: 0.5rem;
     color: $pri-mid;
     text-transform: uppercase;
-    font-family: "AvenirNextLTPro-Demi";
+    font-family: "Avenir Next Pro Lt";
+    font-weight: 600;
     font-size: 0.7rem;
     display: block;
 
@@ -166,7 +169,8 @@
   }
 
   &__date {
-    font-family: "AvenirNextLTPro-Demi";
+    font-family: "Avenir Next Pro Lt";
+    font-weight: 600;
   }
 
   &__date,

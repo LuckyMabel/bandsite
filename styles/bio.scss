@@ -30,7 +30,8 @@
   }
 
   &__title {
-    font-family: "AvenirNextLTPro-Demi";
+    font-family: "Avenir Next Pro Lt";
+    font-weight: 600;
     color: $pri-dark;
     font-size: 1.8rem;
     @include padding-headline("mobile");
@@ -61,7 +62,8 @@
   }
 
   &__passage {
-    font-family: "AvenirNextLTPro-Demi";
+    font-family: "Avenir Next Pro Lt";
+    font-weight: 600;
     color: $pri-dark;
     font-size: 1.02rem;
     line-height: 1.6;
@@ -99,7 +101,8 @@
     @include tablet {
       flex: 1 0 100%;
       font-size: 1.5rem;
-      font-family: "AvenirNextLTPro-Demi";
+      font-family: "Avenir Next Pro Lt";
+      font-weight: 600;
       @include padding-headline("tablet");
     }
   }
@@ -150,7 +153,8 @@
   }
 
   &__title {
-    font-family: "AvenirNextLTPro-Demi";
+    font-family: "Avenir Next Pro Lt";
+    font-weight: 600;
     color: $pri-dark;
     font-size: 1.8rem;
     @include padding-headline("mobile");
@@ -211,7 +215,8 @@
 
   &__title {
     flex: 1 0 100%;
-    font-family: "AvenirNextLTPro-Demi";
+    font-family: "Avenir Next Pro Lt";
+    font-weight: 600;
     font-size: 1.87rem;
     @include padding-headline("mobile");
 
@@ -305,7 +310,8 @@
   &__label {
     color: $pri-mid;
     text-transform: uppercase;
-    font-family: "AvenirNextLTPro-Demi";
+    font-family: "Avenir Next Pro Lt";
+    font-weight: 600;
     font-size: 0.75rem;
   }
 
@@ -331,7 +337,7 @@
 
   &__input::placeholder,
   &__textarea::placeholder {
-    font-family: "AvenirNextLTPro-Regular";
+    font-family: "Avenir Next Pro Lt";
     color: $pri-dark;
     font-size: 1rem;
   }
@@ -399,7 +405,8 @@
 
   &__username {
     font-size: 1rem;
-    font-family: "AvenirNextLTPro-Demi";
+    font-family: "Avenir Next Pro Lt";
+    font-weight: 600;
     @include padding-component("mobile");
   }
 
