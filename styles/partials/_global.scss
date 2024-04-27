@@ -41,26 +41,30 @@ img {
 }
 
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 3rem;
   background-color: $pri-dark;
   color: $pri-light;
+  width: 100%;
+  height: 3rem;
+  border: none;
+  border-radius: 5px;
+  padding: 0 2rem;
   font-family: "Avenir Next Pro Lt";
   font-weight: 600;
-  font-size: 1.2rem;
-  border-radius: 0.25rem;
-  text-transform: uppercase;
-  border-style: none;
   cursor: pointer;
-}
 
-.divider {
-  width: 100%;
-  height: 0.125rem;
-  background-color: $sec-mid;
-  border: none;
+  @include tablet {
+    width: 10.5rem;
+    height: 2.8rem;
+  }
+
+  @include desktop {
+    width: 9.5rem;
+    height: 2.5rem;
+  }
+
+  &:hover {
+    background-color: $sec-dark;
+  }
 }
 
 // Header

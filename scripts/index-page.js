@@ -1,72 +1,174 @@
-// Comments Array
-const comments = [
-    {
-        name: 'Victor Pinto',
-        date: '11/02/2023',
-        comment: 'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.'
-    },
-    {
-        name: 'Christina Cabrera',
-        date: '10/28/2023',
-        comment: 'I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.'
-    },
-    {
-        name: 'Isaac Tadesse',
-        date: '10/20/2023',
-        comment: 'I can\'t stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can\'t get enough.'
-    }
-];
+const apiKey = "a1653376-3bab-476e-80a2-f666bd77dc6e";
+const api = new BandSiteApi(apiKey);
+const commentsContainer = document.querySelector(".comments");
 
-// New Comment
-let addComment = form => {
-    const timestamp = new Date();
-    const comment = {
-        name: form.name.value,
-        date: `${timestamp.getDate()}/${timestamp.getMonth()}/${timestamp.getFullYear()}`,
-        comment: form.textarea.value
-    };
-    comments.unshift(comment);
-};
-
-// Delete Comments
-let clearComments = () => {
-    const commentItems = document.querySelector(".comment__items");
-    commentItems.innerHTML = '';
-};
-
-// Render Comments
-let renderComments = commentsObj => {
-    clearComments();
-    
-    const data = commentsObj ? commentsObj : comments;
-    const className = "comment__";
-    const mainContainer = document.querySelector(`.${className}items`);
-    mainContainer.innerHTML += '<hr class="comment__divider">';
-    data.forEach(comment => {
-        const { name, date, comment: content } = comment;
-        mainContainer.innerHTML += `
-            <article class="${className}item">
-                <div class="${className}thumbnail">
-                    <div class="${className}avatar"></div>
-                </div>
-                <div class="${className}content">
-                    <h3 class="${className}username">${name}</h3>
-                    <span class="${className}timestamp">${date}</span>
-                    <p class="${className}body">${content}</p>
-                </div>
-            </article>
-            <hr class="${className}divider">
-        `;
+async function displayAllComments() {
+  try {
+    const comments = await api.getComments();
+    comments.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    console.log(comments);
+    commentsContainer.innerHTML = "";
+    comments.forEach((comment) => {
+      displayComment(comment);
     });
-};
+  } catch (error) {
+    console.log(error);
+  }
+}
+displayAllComments();
 
-// Submit Comments
-document.querySelector(".comment__form").addEventListener("submit", event => {
-    event.preventDefault();
-    const form = event.target;
-    addComment(form);
-    renderComments();
-    form.reset();
+function displayComment(comment) {
+  const commentElement = document.createElement("article");
+  commentElement.classList.add("comment");
+  commentElement.id = `comment-${comment.id}`;
+
+  const avatarElement = createAvatar();
+  const commentInfoElement = createCommentInfo(comment);
+
+  commentElement.appendChild(avatarElement);
+  commentElement.appendChild(commentInfoElement);
+  commentsContainer.appendChild(commentElement);
+}
+
+const commentForm = document.getElementById("comment-form");
+
+commentForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  clearErrorMessages();
+
+  const name = event.target.name.value;
+  const text = event.target.text.value;
+
+  if (name === "" || text === "") {
+    if (name === "") {
+      showError(document.getElementById("comment-name"));
+    }
+
+    if (text === "") {
+      showError(document.getElementById("comment-text"));
+    }
+    return;
+  }
+
+  const newComment = {
+    name: name,
+    comment: text,
+  };
+
+  await api.postComment(newComment);
+  await displayAllComments();
+
+  event.target.name.value = "";
+  event.target.text.value = "";
 });
 
-renderComments();
+function clearErrorMessages() {
+  document.getElementById("comment-text").classList.remove("error");
+  document.getElementById("comment-name").classList.remove("error");
+}
+
+function showError(element) {
+  element.classList.add("error");
+}
+
+function createCommentInfo(comment) {
+  const commentInfoElement = document.createElement("div");
+  commentInfoElement.classList.add("comment__info");
+
+  commentInfoElement.appendChild(createCommentHeader(comment));
+  commentInfoElement.appendChild(createCommentText(comment));
+  commentInfoElement.appendChild(createButtonContainer(comment));
+
+  return commentInfoElement;
+}
+
+function createAvatar() {
+  const avatarElement = document.createElement("div");
+  avatarElement.classList.add("comment__avatar");
+  avatarElement.classList.add("comment__avatar--empty");
+  return avatarElement;
+}
+
+function createCommentText(comment) {
+  const commentTextElement = document.createElement("p");
+  commentTextElement.classList.add("comment__text");
+  commentTextElement.innerText = comment.comment;
+  return commentTextElement;
+}
+
+function createCommentHeader(comment) {
+  const commentHeaderElement = document.createElement("div");
+  commentHeaderElement.classList.add("comment__header");
+
+  const commentNameElement = document.createElement("h3");
+  commentNameElement.classList.add("comment__name");
+  commentNameElement.innerText = comment.name;
+
+  const dateElement = document.createElement("div");
+  dateElement.classList.add("comment__date");
+  dateElement.innerHTML = formattedDate(comment.timestamp);
+
+  commentHeaderElement.appendChild(commentNameElement);
+  commentHeaderElement.appendChild(dateElement);
+  return commentHeaderElement;
+}
+
+function createButtonContainer(comment) {
+  const buttonsContainer = document.createElement("div");
+  buttonsContainer.classList.add("comment__submit");
+
+  buttonsContainer.appendChild(createLikesCount(comment.likes));
+  buttonsContainer.appendChild(createButton("./assets/icons/SVG/icon-like.svg", () => handleLike(comment.id, buttonsContainer)));
+  buttonsContainer.appendChild(createButton("./assets/icons/SVG/icon-delete.svg", () => handleDelete(comment.id)));
+
+  return buttonsContainer;
+}
+
+function createButton(imgSrc, onClick) {
+  const button = document.createElement("button");
+  button.classList.add("comment__button");
+  const icon = document.createElement("img");
+  icon.src = imgSrc;
+  button.appendChild(icon);
+
+  if (onClick) {
+    button.addEventListener("click", onClick);
+  }
+
+  return button;
+}
+
+function createLikesCount(count) {
+  const likesCount = document.createElement("div");
+  likesCount.classList.add("comment__likecount");
+  likesCount.innerHTML = count;
+  return likesCount;
+}
+
+function formattedDate(timestamp) {
+  const date = new Date(timestamp);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  return `${month}/${day}/${year}`;
+}
+
+async function handleLike(commentId, likeButton, buttonsContainer) {
+  try {
+    const responseData = await api.likeComment(commentId);
+    buttonsContainer.querySelector(".comment__likecount").innerHTML = responseData.likes;
+    likeButton.classList.add("comment__button--liked");
+    console.log(responseData);
+  } catch (error) {
+    console.log("Error liking comment:", error);
+  }
+}
+
+async function handleDelete(commentId) {
+  try {
+    await api.deleteComment(commentId);
+    document.getElementById(`comment-${commentId}`).classList.add("deleted");
+  } catch (error) {
+    console.log("Error deleting comment:", error);
+  }
+}

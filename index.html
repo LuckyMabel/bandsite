@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/bio.css" />
+    <link rel="stylesheet" href="styles/bio.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+      defer
+    ></script>
+    <script src="scripts/band-site-api.js" defer></script>
+    <script src="scripts/index-page.js" defer></script>
     <title>Bandsite</title>
   </head>
   <body>
@@ -154,51 +160,45 @@
         </div>
       </section>
 
-      <section class="comment">
-        <div class="comment__container">
-          <h2 class="comment__title">Join the Conversation</h2>
-
-          <div class="comment__generate">
-            <div class="comment__thumbnail comment__thumbnail--active">
-              <div class="comment__avatar">
-                <img
-                  class="comment__image"
-                  src="./assets/images/Mohan-muruge.jpg"
-                  alt="User Avatar"
-                />
-              </div>
-            </div>
-            <form class="comment__form">
-              <div class="comment__name">
-                <label class="comment__label" for="comment__input">Name</label>
-                <input
-                  class="comment__input"
-                  type="text"
-                  name="name"
-                  id="comment__input"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-              <div class="comment__text">
-                <label class="comment__label" for="comment__textarea"
-                  >Comment</label
-                >
-                <textarea
-                  class="comment__textarea"
-                  name="textarea"
-                  id="comment__textarea"
-                  placeholder="Add a new comment"
-                  required
-                ></textarea>
-              </div>
-              <div class="comment__submit">
-                <button class="comment__button">Comment</button>
-              </div>
-            </form>
+      <section class="conversation">
+        <h2 class="conversation__title">Join the Conversation</h2>
+        <form id="comment-form" class="form">
+          <div class="form__avatar">
+            <img
+              class="form__image"
+              src="assets/images/Mohan-muruge.jpg"
+              alt="User Avatar"
+            />
           </div>
-          <div class="comment__items"></div>
-        </div>
+          <div class="form__info">
+            <div class="form__container">
+              <label for="comment-name">NAME</label>
+              <input
+                type="text"
+                name="name"
+                id="comment-name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <div class="form__container">
+              <label for="comment-text">COMMENT</label>
+              <textarea
+                name="text"
+                id="comment-text"
+                placeholder="Add a new comment"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form__submit">
+              <button class="form__button" id="submit-button">COMMENT</button>
+            </div>
+          </div>
+        </form>
+
+        <section class="comments"></section>
       </section>
     </main>
 
@@ -282,8 +282,5 @@
         </p>
       </div>
     </footer>
-
-    <script src="scripts/index-page.js"></script>
   </body>
 </html>
-
