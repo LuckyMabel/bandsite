@@ -263,6 +263,7 @@
     border-radius: 50%;
     overflow: hidden;
     margin-left: 0.4rem;
+    margin-top: 1.4rem;
     background-color: $sec-mid;
 
     @include tablet {
@@ -318,6 +319,7 @@
       box-sizing: border-box;
       font-family: "Avenir Next Pro Lt";
       font-size: 0.98rem;
+      resize: none;
 
       @include tablet {
         padding: 1rem;
@@ -397,6 +399,7 @@
 
     &--empty {
       background-color: $sec-mid;
+      margin-top: 0;
     }
 
     @include desktop {

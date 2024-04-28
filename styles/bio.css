@@ -603,6 +603,7 @@ img {
   border-radius: 50%;
   overflow: hidden;
   margin-left: 0.4rem;
+  margin-top: 1.4rem;
   background-color: #e1e1e1;
 }
 @media (min-width: 768px) {
@@ -657,6 +658,7 @@ img {
   box-sizing: border-box;
   font-family: "Avenir Next Pro Lt";
   font-size: 0.98rem;
+  resize: none;
 }
 @media (min-width: 768px) {
   .form__container input,
@@ -741,6 +743,7 @@ img {
 }
 .comment__avatar--empty {
   background-color: #e1e1e1;
+  margin-top: 0;
 }
 @media (min-width: 1280px) {
   .comment__avatar {

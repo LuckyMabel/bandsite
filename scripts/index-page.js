@@ -8,7 +8,7 @@ async function displayAllComments() {
     comments.sort(function (a, b) {
       return new Date(b.timestamp) - new Date(a.timestamp);
     });
-    commentsContainer.innerHTML = "";
+    commentsContainer.innerText = "";
     comments.forEach(displayComment);
   } catch (error) {
     console.log(error);
@@ -102,7 +102,7 @@ function createNameElement(name) {
 function createDateElement(timestamp) {
   const dateElement = document.createElement("div");
   dateElement.className = "comment__date";
-  dateElement.innerHTML = formattedDate(timestamp);
+  dateElement.innerText = formattedDate(timestamp);
   return dateElement;
 }
 
@@ -132,7 +132,7 @@ function createButtonContainer(comment) {
 function createLikesCount(likes) {
   const likesCount = document.createElement("div");
   likesCount.className = "comment__likes-count";
-  likesCount.innerHTML = likes;
+  likesCount.innerText = likes;
   return likesCount;
 }
 
@@ -150,7 +150,7 @@ async function handleLike(commentId) {
   try {
     const responseData = await api.likeComment(commentId);
     const likesCount = document.querySelector("#comment-" + commentId + " .comment__likes-count");
-    likesCount.innerHTML = responseData.likes;
+    likesCount.innerText = responseData.likes;
   } catch (error) {
     console.log("Error liking comment:", error);
   }
