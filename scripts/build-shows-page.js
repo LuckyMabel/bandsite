@@ -17,11 +17,11 @@ displayAllShows();
 function createShowDetail(title, content) {
   const titleElement = document.createElement("h3");
   titleElement.innerText = title;
-  titleElement.classList.add("show__" + title + "--title");
+  titleElement.classList.add("show__" + title + "-title");
 
   const contentElement = document.createElement("div");
   contentElement.innerText = content;
-  contentElement.classList.add("show__" + title + "--content");
+  contentElement.classList.add("show__" + title + "-content");
 
   const containerElement = document.createElement("div");
   containerElement.classList.add("show__" + title);

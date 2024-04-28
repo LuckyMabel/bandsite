@@ -528,7 +528,7 @@ img {
     font-size: 0.92rem;
   }
 }
-.show__date--title, .show__venue--title, .show__location--title {
+.show__date-title, .show__venue-title, .show__location-title {
   color: #afafaf;
   text-transform: uppercase;
   font-family: "Avenir Next Pro Lt";
@@ -537,7 +537,7 @@ img {
   padding: 0.5rem 0;
 }
 @media (min-width: 768px) {
-  .show__date--title, .show__venue--title, .show__location--title {
+  .show__date-title, .show__venue-title, .show__location-title {
     display: none;
   }
 }
