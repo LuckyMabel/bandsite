@@ -22,7 +22,6 @@ function displayComment(comment) {
 }
 
 const commentForm = document.getElementById("comment-form");
-
 commentForm.addEventListener("submit", async function (event) {
   event.preventDefault();
   const nameInput = document.getElementById("comment-name");
@@ -32,12 +31,10 @@ commentForm.addEventListener("submit", async function (event) {
 
   const name = event.target.name.value;
   const text = event.target.text.value;
-
   if (!name || !text) {
     if (!name) {
       nameInput.classList.add("error");
     }
-
     if (!text) {
       textInput.classList.add("error");
     }
@@ -60,10 +57,8 @@ function createCommentElement(comment) {
   const commentElements = document.createElement("article");
   commentElements.className = "comment";
   commentElements.id = "comment-" + comment.id;
-
   commentElements.appendChild(createAvatar());
   commentElements.appendChild(createCommentInfo(comment));
-
   return commentElements;
 }
 
@@ -76,12 +71,18 @@ function createAvatar() {
 function createCommentInfo(comment) {
   const commentInfoElement = document.createElement("div");
   commentInfoElement.className = "comment__info";
-
   commentInfoElement.appendChild(createCommentHeader(comment));
   commentInfoElement.appendChild(createCommentText(comment));
   commentInfoElement.appendChild(createButtonContainer(comment));
-
   return commentInfoElement;
+}
+
+function createCommentHeader(comment) {
+  const commentHeaderElement = document.createElement("div");
+  commentHeaderElement.className = "comment__header";
+  commentHeaderElement.appendChild(createNameElement(comment.name));
+  commentHeaderElement.appendChild(createDateElement(comment.timestamp));
+  return commentHeaderElement;
 }
 
 function createCommentText(comment) {
@@ -89,16 +90,6 @@ function createCommentText(comment) {
   commentTextElement.className = "comment__text";
   commentTextElement.innerText = comment.comment;
   return commentTextElement;
-}
-
-function createCommentHeader(comment) {
-  const commentHeaderElement = document.createElement("div");
-  commentHeaderElement.className = "comment__header";
-
-  commentHeaderElement.appendChild(createNameElement(comment.name));
-  commentHeaderElement.appendChild(createDateElement(comment.timestamp));
-
-  return commentHeaderElement;
 }
 
 function createNameElement(name) {
@@ -127,7 +118,7 @@ function createButtonContainer(comment) {
   const buttonsContainer = document.createElement("div");
   buttonsContainer.className = "comment__submit";
 
-  buttonsContainer.appendChild(createLikesCountElement(comment.likes));
+  buttonsContainer.appendChild(createLikesCount(comment.likes));
   buttonsContainer.appendChild(createButton("./assets/icons/svg/icon-like.svg", function () {
     handleLike(comment.id);
   }));
@@ -138,7 +129,7 @@ function createButtonContainer(comment) {
   return buttonsContainer;
 }
 
-function createLikesCountElement(likes) {
+function createLikesCount(likes) {
   const likesCount = document.createElement("div");
   likesCount.className = "comment__likes-count";
   likesCount.innerHTML = likes;

@@ -8,7 +8,7 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
       defer
     ></script>
-    <script src="../scripts/band-site-api.js"></script>
+    <script src="../scripts/band-site-api.js" defer></script>
     <script src="../scripts/build-shows-page.js" defer></script>
     <title>Bandsite | Shows</title>
   </head>
@@ -86,7 +86,17 @@
           </div>
         </div>
       </section>
-      <section class="shows"></section>
+
+      <section class="shows">
+        <h2 class="shows__title">Shows</h2>
+        <div class="shows__list">
+          <div class="shows__header">
+            <div class="shows__label">Date</div>
+            <div class="shows__label">Venue</div>
+            <div class="shows__label">Location</div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">

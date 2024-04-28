@@ -1,94 +1,75 @@
-// Shows Array
-const shows = [
-  {
-      date: 'Mon Sept 09 2024',
-      venue: 'Ronald Lane',
-      location: 'San Francisco, CA'
-  },
-  {
-      date: 'Tue Sept 17 2024',
-      venue: 'Pier 3 East',
-      location: 'San Francisco, CA'
-  },
-  {
-      date: 'Sat Oct 12 2024',
-      venue: 'View Lounge',
-      location: 'San Francisco, CA'
-  },
-  {
-      date: 'Sat Nov 16 2024',
-      venue: 'Hyatt Agency',
-      location: 'San Francisco, CA'
-  },
-  {
-      date: 'Fri Nov 29 2024',
-      venue: 'Moscow Center',
-      location: 'San Francisco, CA'
-  },
-  {
-      date: 'Wed Dec 18 2024',
-      venue: 'Press Club',
-      location: 'San Francisco, CA'
+const apiKey = "a1653376-3bab-476e-80a2-f666bd77dc6e";
+const api = new BandSiteApi(apiKey);
+
+async function displayAllShows() {
+  try {
+    const shows = await api.getShows();
+    console.log(shows);
+    shows.forEach((show, index) => {
+      displayShow(show, index);
+    });
+  } catch (error) {
+    console.log(error);
   }
-];
+}
+displayAllShows();
 
-// Render Shows
-let renderShows = showsObj => {
-  const data = showsObj ? showsObj : shows;
-  const className = "shows__";
-  const showsContainer = document.querySelector(".shows");
-  showsContainer.innerHTML = `
-      <div class="${className}container">
-          <h2 class="${className}title">Shows</h2>
-          <div class="${className}content">
-              <div class="${className}header">
-                  ${['Date', 'Venue', 'Location', ' '].map(label => `<span class="${className}label">${label}</span>`).join('')}
-              </div>
-          </div>
-      </div>
-  `;
-  const showsContentContainer = showsContainer.querySelector(`.${className}content`);
+function createShowDetail(title, content) {
+  const titleElement = document.createElement("h3");
+  titleElement.innerText = title;
+  titleElement.classList.add("show__" + title + "--title");
 
-  data.forEach(show => {
-      const showDate = `
-          <li class="${className}date">
-              <span class="${className}label ${className}label--mobile">Date</span>
-              <span class="${className}date">${show.date}</span>
-          </li>
-      `;
-      const showVenue = `
-          <li class="${className}venue">
-              <span class="${className}label ${className}label--mobile">Venue</span>
-              <span class="${className}place">${show.venue}</span>
-          </li>
-      `;
-      const showLocation = `
-          <li class="${className}location">
-              <span class="${className}label ${className}label--mobile">Location</span>
-              <span class="${className}city">${show.location}</span>
-          </li>
-      `;
-      const showButton = `
-          <div class="${className}submit">
-              <a href="#" class="${className}button">Buy Tickets</a>
-          </div>
-      `;
-      const showDivider = `<hr class="${className}divider">`;
+  const contentElement = document.createElement("div");
+  contentElement.innerText = content;
+  contentElement.classList.add("show__" + title + "--content");
 
-      const showsInfoContainer = document.createElement("ul");
-      showsInfoContainer.classList.add(`${className}info`);
-      showsInfoContainer.addEventListener("click", event => {
-          event.stopPropagation();
-          document.querySelectorAll(`.${className}info--selected`).forEach(element => {
-              element.classList.remove(`${className}info--selected`);
-          });
-          showsInfoContainer.classList.add(`${className}info--selected`);
-      });
+  const containerElement = document.createElement("div");
+  containerElement.classList.add("show__" + title);
+  containerElement.appendChild(titleElement);
+  containerElement.appendChild(contentElement);
+  return containerElement;
+}
 
-      showsInfoContainer.innerHTML = showDate + showVenue + showLocation + showButton;
-      showsContentContainer.appendChild(showsInfoContainer);
-      showsContentContainer.insertAdjacentHTML('beforeend', showDivider);
-  });
-};
+function formattedDate(date) {
+    let formatDate = new Date(date);
+    const options = {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    };
+    return new Intl.DateTimeFormat("en-US", options).format(formatDate);
+  }
 
-renderShows();
+function displayShow(show) {
+  const showElement = document.createElement("article");
+  showElement.classList.add("show");
+
+  const showDateElement = createShowDetail("date", formattedDate(show.date));
+  const showVenueElement = createShowDetail("venue", show.place);
+  const showLocationElement = createShowDetail("location", show.location);
+
+  const showInfoContainer = document.createElement("div");
+  showInfoContainer.classList.add("show__info");
+  showInfoContainer.appendChild(showDateElement);
+  showInfoContainer.appendChild(showVenueElement);
+  showInfoContainer.appendChild(showLocationElement);
+
+  const showButtonElement = document.createElement("button");
+  showButtonElement.classList.add("show__button");
+  showButtonElement.innerText = "BUY TICKETS";
+
+  showElement.appendChild(showInfoContainer);
+  showElement.appendChild(showButtonElement);
+  showElement.addEventListener("click", () => selectShow(showElement));
+
+  const showsContainer = document.querySelector(".shows__list");
+  showsContainer.appendChild(showElement);
+}
+
+function selectShow(showElement) {
+    document.querySelectorAll(".show--selected").forEach((element) => {
+      element.classList.remove("show--selected");
+    });
+    showElement.classList.add("show--selected");
+  }
